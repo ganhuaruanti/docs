@@ -24,8 +24,8 @@
     - [Notification 監視者](#notification-watcher)
     - [Query 監視者](#query-watcher)
     - [Redis 監視者](#redis-watcher)
-    - [Request 監視者](#request-watcher)
-    - [Schedule 監視者](#schedule-watcher)
+    - [請求監視者](#request-watcher)
+    - [排程監視者](#schedule-watcher)
 
 <a name="introduction"></a>
 ## 簡介
