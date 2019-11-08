@@ -304,7 +304,7 @@ log 檔監視者紀錄所有對 log 檔的所有資料。
 <a name="mail-watcher"></a>
 ### 郵件監視者
 
-The mail watcher allows you to view an in-browser preview of the emails along with their associated data. You may also download the email as an `.eml` file.
+郵件監視者允許你用瀏覽器預覽信件以及內容資料，你也可以以 `.eml` 檔案格式下載信件。
 
 <a name="model-watcher"></a>
 ### 模型監視者
