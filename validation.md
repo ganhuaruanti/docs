@@ -718,7 +718,7 @@ Stop running validation rules after the first validation failure.
 <a name="rule-digits-between"></a>
 #### digits_between:_min_,_max_
 
-驗證欄位值的長度必須在 _min_ 和 _max_ 之間。
+驗證欄位值必須是_數字_，長度必須在 _min_ 和 _max_ 之間。
 
 <a name="rule-dimensions"></a>
 #### dimensions
