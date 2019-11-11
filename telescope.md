@@ -12,7 +12,7 @@
 - [標籤](#tagging)
 - [可用的監視者](#available-watchers)
     - [快取監視者](#cache-watcher)
-    - [Command 監視者](#command-watcher)
+    - [命令監視者](#command-watcher)
     - [Dump 監視者](#dump-watcher)
     - [事件監視者](#event-watcher)
     - [例外監視者](#exception-watcher)
@@ -245,12 +245,16 @@ Some watchers also allow you to provide additional customization options:
 <a name="cache-watcher"></a>
 ### 快取監視者
 
-快取監視者紀錄存取快取成功（hit），存取失敗（miss），更新以及遺忘的紀錄。
+快取監視者紀錄存取快取成功（hit），存取失敗（miss），更新快取以及遺忘快取的紀錄。
 
 <a name="command-watcher"></a>
 ### 命令監視者
 
-The command watcher records the arguments, options, exit code, and output whenever an Artisan command is executed. If you would like to exclude certain commands from being recorded by the watcher, you may specify the command in the `ignore` option in your `config/telescope.php` file:
+命令監視者紀錄已執行 Artisan 命令的參數，選項，exit code 以及輸出。
+
+如果你想要
+
+If you would like to exclude certain commands from being recorded by the watcher, you may specify the command in the `ignore` option in your `config/telescope.php` file:
 
     'watchers' => [
         Watchers\CommandWatcher::class => [
