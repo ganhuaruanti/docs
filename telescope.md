@@ -269,8 +269,7 @@ If you would like to exclude certain commands from being recorded by the watcher
 
 Telescope 的 dump 監視者紀錄並顯示所有的變數 dump 內容。
 
-在 Laravel 專案內，變數可能會透過 `dump` 函式做顯示。
-When using Laravel, variables may be dumped using the global `dump` function. The dump watcher tab must be open in a browser for the recording to occur, otherwise the dumps will be ignored by the watcher.
+在 Laravel 專案內，變數可能會透過 `dump` 函式做顯示。需要觸發紀錄時，dump 監視者的分頁要持續在瀏覽器開著，否則 dump 的內容會被監視器忽略。
 
 <a name="event-watcher"></a>
 ### 事件監視者
