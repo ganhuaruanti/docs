@@ -329,7 +329,9 @@ log 檔監視者紀錄所有對 log 檔的所有資料。
 <a name="query-watcher"></a>
 ### 佇列監視者
 
-佇列（query）監視者 records the raw SQL, bindings, and execution time for all queries that are executed by your application. The watcher also tags any queries slower than 100ms as `slow`. You may customize the slow query threshold using the watcher's `slow` option:
+佇列（query）監視者紀錄應用佇列中所有的 raw SQL，綁定，以及執行時間。
+
+監視者也會將所有執行時間超過 100ms 的資料庫存取標記為 `slow`，你可以在佇列監視者的 `slow` 選項裡修改判定資料庫存取為 `slow` 的門檻。
 
     'watchers' => [
         Watchers\QueryWatcher::class => [
