@@ -18,11 +18,11 @@
     - [例外監視者](#exception-watcher)
     - [Gate 監視者](#gate-watcher)
     - [Job 監視者](#job-watcher)
-    - [Log 監視者](#log-watcher)
+    - [Log 檔監視者](#log-watcher)
     - [郵件監視者](#mail-watcher)
     - [模型監視者](#model-watcher)
-    - [Notification 監視者](#notification-watcher)
-    - [Query 監視者](#query-watcher)
+    - [提示監視者](#notification-watcher)
+    - [佇列監視者](#query-watcher)
     - [Redis 監視者](#redis-watcher)
     - [請求監視者](#request-watcher)
     - [排程監視者](#schedule-watcher)
@@ -283,7 +283,7 @@ The event watcher records the payload, listeners, and broadcast data for any eve
 例外監視者紀錄並 stack trace 所有被拋出的例外
 
 <a name="gate-watcher"></a>
-### Gate Watcher
+### Gate 監視者
 
 The gate watcher records the data and result of gate and policy checks by your application. If you would like to exclude certain abilities from being recorded by the watcher, you may specify those in the `ignore_abilities` option in your `config/telescope.php` file:
 
