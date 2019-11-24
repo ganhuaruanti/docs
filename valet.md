@@ -132,7 +132,7 @@ Valet 2.0 將 Valet 的底層網頁伺服器從 Caddy 移植到 Nginx。在升�
 Valet 一旦安裝好了，你可以開始準備啟動專案。Valet 提供兩種指令來協助你啟動 Laravel 專案：`park` 和 `link`。
 
 <a name="the-park-command"></a>
-**`park` 指令**
+#### `park` 指令
 
 <div class="content-list" markdown="1">
 - 請先執行像是 `mkdir ~/Sites` 指令在你的 MacOS 上建立一個新的目錄。接著依序執行 `cd ~/Sites` 和 `valet park` 指令。這個指令會將當前執行目錄註冊為 Valet 搜尋專案所用的路徑。
@@ -143,7 +143,7 @@ Valet 一旦安裝好了，你可以開始準備啟動專案。Valet 提供兩�
 **就只有這些步驟！**現在任何在被「Park」標記的目錄中的 Laravel 專案會自動使用 `http://folder-name.test` 慣例來啟動。
 
 <a name="the-link-command"></a>
-**`link` 指令**
+#### `link` 指令
 
 `link` 指令也可以被用於啟動你的 Laravel 專案。這個指令有助於只啟動目錄中一個專案，而不是整個目錄。
 
@@ -157,7 +157,7 @@ Valet 一旦安裝好了，你可以開始準備啟動專案。Valet 提供兩�
 > {tip} 你能從多個（子）網域中使用 `valet link` 來啟動想同的專案。若要將子網域或另一個網域新增到專案中，請從專案資料夾中執行 `valet link subdomain.app-name` 指令。
 
 <a name="securing-sites"></a>
-**使用 TLS 保護**
+#### 使用 TLS 保護
 
 預設的 Valet 只會啟動未加密的 HTTP。然而，如果你想要使用 HTTP/2 的加密 TLS 來啟動專案，請使用 `secure` 指令。例如，如果你的專案被啟動在 Valet 上的 `laravel.test` 網域，你你應該執行以下指令來保護它：
 

@@ -622,7 +622,8 @@ Now if the validation rule fails it will produce the following message:
 <a name="rule-active-url"></a>
 #### active_url
 
-透過 PHP 的 `dns_get_record` 函式來驗證欄位是否為有效的 A 或 AAAA 紀錄。
+透過 PHP 的 `dns_get_record` 函式來驗證欄位是否為有效的 A 或 AAAA 紀錄。 The hostname of the provided URL is extracted using the `parse_url` PHP function before being passed to `dns_get_record`.
+>>>>>>> e21089592a097e5b1fe6806efa027914074c09c7
 
 <a name="rule-after"></a>
 #### after:_date_
