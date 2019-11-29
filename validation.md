@@ -795,6 +795,10 @@ If the `column` option is not specified, the field name will be used.
 
     'email' => 'exists:connection.staff,email'
 
+Instead of specifying the table name directly, you may specify the Eloquent model which should be used to determine the table name:
+
+    'user_id' => 'exists:App\User,id'
+
 如果想要客制驗證規則執行的查詢，可以用 `Rule` 類別來流暢地定義規則。在這個範例中，我們也會以陣列來表示驗證規則，而不是用 `|` 字元來分割：
 
     use Illuminate\Validation\Rule;
@@ -1062,6 +1066,10 @@ The field under validation must start with one of the given values.
 The field under validation must not exist within the given database table.
 
 **指定自訂的欄位名稱：**
+
+Instead of specifying the table name directly, you may specify the Eloquent model which should be used to determine the table name:
+
+    'email' => 'unique:App\User,email_address'
 
 在給定的資料表，驗證欄位中必須是唯一的。如果沒有指定 `column`，將會使用欄位本身的名稱。
 
