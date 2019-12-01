@@ -224,7 +224,9 @@ Often, tags are Eloquent model class names or authenticated user IDs which Teles
 <a name="available-watchers"></a>
 ## 可用的監視者
 
-當執行請求或者呼叫指令時，Telescope 監視者會收集相關資訊。 You may customize the list of watchers that you would like to enable within your `config/telescope.php` configuration file:
+當執行請求或者呼叫指令時，Telescope 監視者會收集相關資訊。
+
+你可以透過修改 `config/telescope.php` 設置檔來改變啟用的監視者列表：
 
     'watchers' => [
         Watchers\CacheWatcher::class => true,
@@ -232,7 +234,7 @@ Often, tags are Eloquent model class names or authenticated user IDs which Teles
         ...
     ],
 
-Some watchers also allow you to provide additional customization options:
+有的監視者還提供了其他的設置選項：
 
     'watchers' => [
         Watchers\QueryWatcher::class => [
