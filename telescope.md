@@ -356,7 +356,9 @@ Redis 監視者紀錄所有執行的 Redis 指令。如果你使用 Redis 做快
 <a name="request-watcher"></a>
 ### 請求監視者
 
-The request watcher records the request, headers, session, and response data associated with any requests handled by the application. You may limit your response data via the `size_limit` (in KB) option:
+請求監視者監控所有應用處理過的請求，以及他們的標頭，session，以及回傳資料。
+
+你可以透過 `size_limit`（以 KB 為單位）選項來限制回傳資料的大小：
 
     'watchers' => [
         Watchers\RequestWatcher::class => [
