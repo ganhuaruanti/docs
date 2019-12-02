@@ -96,8 +96,7 @@ Valet 會在每次被啟動時自動開啟他的守護行程。一旦完成了�
 
 #### PHP 版本
 
-
-Valet allows you to switch PHP versions using the `valet use php@version` command. Valet will install the specified PHP version via Brew if it is not already installed:
+Valet 允許你使用 `valet use php@version` 指令切換 PHP 版本。如果還未安裝該版本的 PHP，Valet 會透過 Brew 安裝對應版本：
 
     valet use php@7.2
 
@@ -177,7 +176,7 @@ Valet 甚至包括與世界分享你的本機網站的指令。一旦安裝了 V
 若要停止共享專案，請點擊 `Control + C` 來終止共享。
 
 <a name="site-specific-environment-variables"></a>
-## Site Specific Environment Variables
+## 專屬網站的環境變數
 
 Some applications using other frameworks may depend on server environment variables but do not provide a way for those variables to be configured within your project. Valet allows you to configure site specific environment variables by adding a `.valet-env.php` file within the root of your project. These variables will be added to the `$_SERVER` global array:
 
