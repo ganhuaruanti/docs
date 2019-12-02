@@ -1,36 +1,36 @@
 # Laravel Socialite
 
-- [Introduction](#introduction)
-- [Upgrading Socialite](#upgrading-socialite)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Routing](#routing)
-- [Optional Parameters](#optional-parameters)
+- [簡介](#introduction)
+- [升級 Socialite](#upgrading-socialite)
+- [安裝](#installation)
+- [設置](#configuration)
+- [路由](#routing)
+- [可選的參數](#optional-parameters)
 - [Access Scopes](#access-scopes)
-- [Stateless Authentication](#stateless-authentication)
+- [無狀態認證](#stateless-authentication)
 - [Retrieving User Details](#retrieving-user-details)
 
 <a name="introduction"></a>
-## Introduction
+## 簡介
 
 In addition to typical, form based authentication, Laravel also provides a simple, convenient way to authenticate with OAuth providers using [Laravel Socialite](https://github.com/laravel/socialite). Socialite currently supports authentication with Facebook, Twitter, LinkedIn, Google, GitHub, GitLab and Bitbucket.
 
 > {tip} Adapters for other platforms are listed at the community driven [Socialite Providers](https://socialiteproviders.netlify.com/) website.
 
 <a name="upgrading-socialite"></a>
-## Upgrading Socialite
+## 升級 Socialite
 
 When upgrading to a new major version of Socialite, it's important that you carefully review [the upgrade guide](https://github.com/laravel/socialite/blob/master/UPGRADE.md).
 
 <a name="installation"></a>
-## Installation
+## 安裝
 
 To get started with Socialite, use Composer to add the package to your project's dependencies:
 
     composer require laravel/socialite
 
 <a name="configuration"></a>
-## Configuration
+## 設置
 
 Before using Socialite, you will also need to add credentials for the OAuth services your application utilizes. These credentials should be placed in your `config/services.php` configuration file, and should use the key `facebook`, `twitter`, `linkedin`, `google`, `github`, `gitlab` or `bitbucket`, depending on the providers your application requires. For example:
 
@@ -43,7 +43,7 @@ Before using Socialite, you will also need to add credentials for the OAuth serv
 > {tip} If the `redirect` option contains a relative path, it will automatically be resolved to a fully qualified URL.
 
 <a name="routing"></a>
-## Routing
+## 路由
 
 Next, you are ready to authenticate users! You will need two routes: one for redirecting the user to the OAuth provider, and another for receiving the callback from the provider after authentication. We will access Socialite using the `Socialite` facade:
 
@@ -86,7 +86,7 @@ You will need to define routes to your controller methods:
     Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
 
 <a name="optional-parameters"></a>
-## Optional Parameters
+## 可選的參數
 
 A number of OAuth providers support optional parameters in the redirect request. To include any optional parameters in the request, call the `with` method with an associative array:
 
@@ -112,7 +112,7 @@ You can overwrite all existing scopes using the `setScopes` method:
         ->redirect();
 
 <a name="stateless-authentication"></a>
-## Stateless Authentication
+## 無狀態認證
 
 The `stateless` method may be used to disable session state verification. This is useful when adding social authentication to an API:
 
