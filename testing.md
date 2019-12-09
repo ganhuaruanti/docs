@@ -40,8 +40,7 @@ In addition, you may create a `.env.testing` file in the root of your project. T
 
     namespace Tests\Unit;
 
-    use Illuminate\Foundation\Testing\RefreshDatabase;
-    use Tests\TestCase;
+    use PHPUnit\Framework\TestCase;
 
     class ExampleTest extends TestCase
     {
