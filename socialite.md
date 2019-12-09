@@ -13,7 +13,9 @@
 <a name="introduction"></a>
 ## 簡介
 
-In addition to typical, form based authentication, Laravel also provides a simple, convenient way to authenticate with OAuth providers using [Laravel Socialite](https://github.com/laravel/socialite). Socialite currently supports authentication with Facebook, Twitter, LinkedIn, Google, GitHub, GitLab and Bitbucket.
+除了傳統的使用表單進行認證，Laravel 還提供了 [Laravel Socialite](https://github.com/laravel/socialite)，可以簡單方便的搭配 OAuth 提供者進行認證。
+
+Socialite 目前支援 Facebook，Twitter，LinkedIn，Google，GitHub，GitLab 和 Bitbucket 的認證。
 
 > {tip} Adapters for other platforms are listed at the community driven [Socialite Providers](https://socialiteproviders.netlify.com/) website.
 
