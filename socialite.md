@@ -27,7 +27,7 @@ When upgrading to a new major version of Socialite, it's important that you care
 <a name="installation"></a>
 ## 安裝
 
-To get started with Socialite, use Composer to add the package to your project's dependencies:
+要開始使用 Socialite，我們可以用 composer 在專案相依元件內增加此套件：
 
     composer require laravel/socialite
 
