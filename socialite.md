@@ -22,7 +22,7 @@ Socialite 目前支援 Facebook，Twitter，LinkedIn，Google，GitHub，GitLab 
 <a name="upgrading-socialite"></a>
 ## 升級 Socialite
 
-When upgrading to a new major version of Socialite, it's important that you carefully review [the upgrade guide](https://github.com/laravel/socialite/blob/master/UPGRADE.md).
+要升級新版的 Socialite 之前，一定要詳細閱讀[升級指南](https://github.com/laravel/socialite/blob/master/UPGRADE.md)。
 
 <a name="installation"></a>
 ## 安裝
