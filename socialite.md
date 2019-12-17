@@ -6,9 +6,9 @@
 - [設置](#configuration)
 - [路由](#routing)
 - [可選的參數](#optional-parameters)
-- [Access Scopes](#access-scopes)
+- [存取範圍](#access-scopes)
 - [無狀態認證](#stateless-authentication)
-- [Retrieving User Details](#retrieving-user-details)
+- [取得用戶細節](#retrieving-user-details)
 
 <a name="introduction"></a>
 ## 簡介
@@ -99,7 +99,7 @@ A number of OAuth providers support optional parameters in the redirect request.
 > {note} When using the `with` method, be careful not to pass any reserved keywords such as `state` or `response_type`.
 
 <a name="access-scopes"></a>
-## Access Scopes
+## 存取範圍
 
 Before redirecting the user, you may also add additional "scopes" on the request using the `scopes` method. This method will merge all existing scopes with the ones you supply:
 
@@ -121,9 +121,9 @@ The `stateless` method may be used to disable session state verification. This i
     return Socialite::driver('google')->stateless()->user();
 
 <a name="retrieving-user-details"></a>
-## Retrieving User Details
+## 取得用戶細節
 
-Once you have a user instance, you can grab a few more details about the user:
+一旦你有了用戶物件，你可以取得更多用戶的細節：
 
     $user = Socialite::driver('github')->user();
 
@@ -143,14 +143,14 @@ Once you have a user instance, you can grab a few more details about the user:
     $user->getEmail();
     $user->getAvatar();
 
-#### Retrieving User Details From A Token (OAuth2)
+#### 從 Token 取得用戶細節 (OAuth2)
 
-If you already have a valid access token for a user, you can retrieve their details using the `userFromToken` method:
+如果你有某個用戶的合法 token，你可以透過 `userFromToken` 取得用戶物件：
 
     $user = Socialite::driver('github')->userFromToken($token);
     
-#### Retrieving User Details From A Token And Secret (OAuth1)
+#### 從 Token 和 Secret 取得用戶細節(OAuth1)
 
-If you already have a valid pair of token / secret for a user, you can retrieve their details using the `userFromTokenAndSecret` method:
+如果你有某個用戶的合法 token 和 secret，你可以透過 `userFromTokenAndSecret` 取得用戶物件：
 
     $user = Socialite::driver('twitter')->userFromTokenAndSecret($token, $secret);
