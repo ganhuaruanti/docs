@@ -116,7 +116,7 @@ You can overwrite all existing scopes using the `setScopes` method:
 <a name="stateless-authentication"></a>
 ## 無狀態認證
 
-The `stateless` method may be used to disable session state verification. This is useful when adding social authentication to an API:
+要取消狀態認證，你可以用 `stateless` 函式。這個函式在 API 需要加入社群網站認證時很有用：
 
     return Socialite::driver('google')->stateless()->user();
 
