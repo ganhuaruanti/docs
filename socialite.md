@@ -34,7 +34,7 @@ Socialite 目前支援 Facebook，Twitter，LinkedIn，Google，GitHub，GitLab 
 <a name="configuration"></a>
 ## 設置
 
-Before using Socialite, you will also need to add credentials for the OAuth services your application utilizes. These credentials should be placed in your `config/services.php` configuration file, and should use the key `facebook`, `twitter`, `linkedin`, `google`, `github`, `gitlab` or `bitbucket`, depending on the providers your application requires. For example:
+使用 Socialite 之前，你還要加上所使用 OAuth 服務的相關認證。這些認證應該要放在 `config/services.php` 設置檔案內，並且根據專案的需求，用 `facebook`，`twitter`，`linkedin`，`google`，`github`，`gitlab` 或 `bitbucket` 這些 key 進行區分。例如：
 
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
