@@ -33,13 +33,25 @@ Artisan 是 Laravel 內建的指令集合，它能提供許多好用的指令來
 <a name="tinker"></a>
 ### Tinker (REPL)
 
-所有 Laravel 的應用程式都可以使用 Tinker，是基於 [PsySH](https://github.com/bobthecow/psysh) 這個套件所提供的 REPL。Tinker 可以直接操控你的整個 Laravel 應用程式，包括 Eloquent ORM、任務、事件等。 執行 `tinker` 這個指令，即可進入 Tinker 環境：
+所有 Laravel 的應用程式都可以使用 Tinker，是基於 [PsySH](https://github.com/bobthecow/psysh) 這個套件所提供的 REPL。
+
+#### Installation
+
+All Laravel applications include Tinker by default. However, you may install it manually if needed using Composer:
+
+    composer require laravel/tinker
+
+#### Usage
+
+Tinker allows you to interact with your entire Laravel application on the command line, including the Eloquent ORM, jobs, events, and more. To enter the Tinker environment, run the `tinker` Artisan command:
 
     php artisan tinker
 
 You can publish Tinker's configuration file using the `vendor:publish` command:
 
     php artisan vendor:publish --provider="Laravel\Tinker\TinkerServiceProvider"
+
+> {note} The `dispatch` helper function and `dispatch` method on the `Dispatchable` class depends on garbage collection to place the job on the queue. Therefore, when using tinker, you should use `Bus::dispatch` or `Queue::push` to dispatch jobs.
 
 #### Command Whitelist
 

@@ -13,6 +13,7 @@
 - [自訂 Valet 驅動](#custom-valet-drivers)
     - [本機驅動](#local-drivers)
 - [其它 Valet 指令](#other-valet-commands)
+- [Valet Directories & Files](#valet-directories-and-files)
 
 <a name="introduction"></a>
 ## 介紹
@@ -74,7 +75,7 @@ Valet 只支援 MacOS，並且會要求你在本機環境上直接安裝 PHP 和
 
 <div class="content-list" markdown="1">
 - 使用 `brew update` 來安裝或更新 [Homebrew](http://brew.sh/) 的最新的版本。
-- 使用 Homebrew 的 `brew install php` 指令來安裝 PHP 7.3
+- 使用 Homebrew 的 `brew install php` 指令來安裝 PHP 7.4
 - 安裝 [Composer](https://getcomposer.org).
 - 使用 Composer 的 `composer global require laravel/valet` 指令來安裝 Valet。並確認 `~/.composer/vendor/bin` 目錄有在你系統的 「PATH」。
 - 執行 `valet install` 指令。這指令會為你設定並安裝 Valet 和 DnsMasq，並於系統啟動時自動註冊守護行程。
@@ -101,6 +102,12 @@ Valet 允許你使用 `valet use php@version` 指令切換 PHP 版本。如果�
     valet use php@7.2
 
     valet use php
+
+> {note} Valet only serves one PHP version at a time, even if you have multiple PHP versions installed.
+
+#### Resetting Your Installation
+
+If you are having trouble getting your Valet installation to run properly, executing the `composer global update` command followed by `valet install` will reset your installation and can solve a variety of problems. In rare cases it may be necessary to "hard reset" Valet by executing `valet uninstall --force` followed by `valet install`.
 
 <a name="upgrading"></a>
 ### 升級
@@ -302,4 +309,29 @@ Some applications using other frameworks may depend on server environment variab
 `valet start` | 啟動 Valet 的守護行程。
 `valet stop` | 暫停 Valet 的守護行程。
 `valet trust` | Add sudoers files for Brew and Valet to allow Valet commands to be run without prompting for passwords.
-`valet uninstall` | 完整的移除 Valet 守護行程。
+`valet uninstall` | Uninstall Valet: Shows instructions for manual uninstall; or pass the `--force` parameter to aggressively delete all of Valet.
+
+<a name="valet-directories-and-files"></a>
+## Valet Directories & Files
+
+You may find the following directory and file information helpful while troubleshooting issues with your Valet environment:
+
+File / Path | Description
+--------- | -----------
+`~/.config/valet/` | Contains all of Valet's configuration. You may wish to maintain a backup of this folder.
+`~/.config/valet/dnsmasq.d/` | Contains DNSMasq's configuration.
+`~/.config/valet/Drivers/` | Contains custom Valet drivers.
+`~/.config/valet/Extensions/` | Contains custom Valet extensions / commands.
+`~/.config/valet/Nginx/` | Contains all Valet generated Nginx site configurations. These files are rebuilt when running the `install`, `secure`, and `tld` commands.
+`~/.config/valet/Sites/` | Contains all symbolic links for linked projects.
+`~/.config/valet/config.json` | Valet's master configuration file
+`~/.config/valet/valet.sock` | The PHP-FPM socket used by Valet's Nginx configuration. This will only exist if PHP is running properly.
+`~/.config/valet/Log/fpm-php.www.log` | User log for PHP errors.
+`~/.config/valet/Log/nginx-error.log` | User log for Nginx errors.
+`/usr/local/var/log/php-fpm.log` | System log for PHP-FPM errors.
+`/usr/local/var/log/nginx` | Contains Nginx access and error logs.
+`/usr/local/etc/php/X.X/conf.d` | Contains `*.ini` files for various PHP configuration settings.
+`/usr/local/etc/php/X.X/php-fpm.d/valet-fpm.conf` | PHP-FPM pool configuration file.
+`~/.composer/vendor/laravel/valet/cli/stubs/secure.valet.conf` | The default Nginx configuration used for building site certificates.
+
+>>>>>>> f081becbe373b5b1c1fe1aad736c8b2364f0eac8

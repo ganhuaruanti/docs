@@ -120,6 +120,8 @@ You can overwrite all existing scopes using the `setScopes` method:
 
     return Socialite::driver('google')->stateless()->user();
 
+> {note} Stateless authentication is not available for the Twitter driver, which uses OAuth 1.0 for authentication.
+
 <a name="retrieving-user-details"></a>
 ## 取得用戶細節
 
