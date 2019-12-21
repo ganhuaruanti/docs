@@ -476,6 +476,14 @@ If you would like to swap plans and immediately invoice the user instead of wait
 
     $user->subscription('default')->swapAndInvoice('provider-plan-id');
 
+#### Prorations
+
+By default, Stripe prorates charges when swapping between plans. The `noProrate` method may be used to update the subscription's without prorating the charges:
+
+    $user->subscription('default')->noProrate()->swap('provider-plan-id');
+
+For more information on subscription proration, consult the [Stripe documentation](https://stripe.com/docs/billing/subscriptions/prorations).
+
 <a name="subscription-quantity"></a>
 ### Subscription Quantity
 
@@ -497,7 +505,7 @@ Alternatively, you may set a specific quantity using the `updateQuantity` method
 
     $user->subscription('default')->updateQuantity(10);
 
-The `noProrate` method may be used to update the subscription's quantity without pro-rating the charges:
+The `noProrate` method may be used to update the subscription's quantity without prorating the charges:
 
     $user->subscription('default')->noProrate()->updateQuantity(10);
 
@@ -832,7 +840,7 @@ Incomplete payment exceptions may be thrown for the following methods: `charge`,
 
 #### Incomplete and Past Due State
 
-When a payment needs additional confirmation, the subscription will remain in an `incomplete` or `past_due` state as indicated by its `stripe_status` database column. Cashier will make automatically activate the customer's subscription via a webhook as soon as payment confirmation is complete.
+When a payment needs additional confirmation, the subscription will remain in an `incomplete` or `past_due` state as indicated by its `stripe_status` database column. Cashier will automatically activate the customer's subscription via a webhook as soon as payment confirmation is complete.
 
 For more information on `incomplete` and `past_due` states, please refer to [our additional documentation](#incomplete-and-past-due-status).
 

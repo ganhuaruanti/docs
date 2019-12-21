@@ -12,6 +12,8 @@
     - [授權表單請求](#authorizing-form-requests)
     - [自訂錯誤訊息](#customizing-the-error-messages)
     - [自訂驗證參數](#customizing-the-validation-attributes)
+    - [Customizing The Validation Attributes](#customizing-the-validation-attributes)
+    - [Prepare Input For Validation](#prepare-input-for-validation)
 - [手動建立驗證器](#manually-creating-validators)
     - [自動重導](#automatic-redirection)
     - [命名錯誤清單](#named-error-bags)
@@ -332,6 +334,25 @@ If you would like the `:attribute` portion of your validation message to be repl
         return [
             'email' => 'email address',
         ];
+    }
+
+<a name="prepare-input-for-validation"></a>
+### Prepare Input For Validation
+
+If you need to sanitize any data from the request before you apply your validation rules, you can use the `prepareForValidation` method:
+
+    use Illuminate\Support\Str;
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'slug' => Str::slug($this->slug),
+        ]);
     }
 
 <a name="manually-creating-validators"></a>
