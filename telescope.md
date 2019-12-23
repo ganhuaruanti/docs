@@ -276,7 +276,9 @@ Telescope 的 dump 監視者紀錄並顯示所有的變數 dump 內容。
 <a name="event-watcher"></a>
 ### 事件監視者
 
-The event watcher records the payload, listeners, and broadcast data for any events dispatched by your application. The Laravel framework's internal events are ignored by the Event watcher.
+事件監視者紀錄應用內所有事件的酬載（payload），listeners，以及廣播的資料。
+
+Laravel 框架內部的事件會被事件監視者忽略。
 
 <a name="exception-watcher"></a>
 ### 例外監視者
