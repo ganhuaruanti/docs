@@ -13,7 +13,7 @@
 - [自訂 Valet 驅動](#custom-valet-drivers)
     - [本機驅動](#local-drivers)
 - [其它 Valet 指令](#other-valet-commands)
-- [Valet Directories & Files](#valet-directories-and-files)
+- [Valet 資料夾與檔案](#valet-directories-and-files)
 
 <a name="introduction"></a>
 ## 介紹
@@ -312,11 +312,11 @@ Some applications using other frameworks may depend on server environment variab
 `valet uninstall` | Uninstall Valet: Shows instructions for manual uninstall; or pass the `--force` parameter to aggressively delete all of Valet.
 
 <a name="valet-directories-and-files"></a>
-## Valet Directories & Files
+## Valet 資料夾與檔案
 
 You may find the following directory and file information helpful while troubleshooting issues with your Valet environment:
 
-File / Path | Description
+檔案 / 路徑 | 說明
 --------- | -----------
 `~/.config/valet/` | Contains all of Valet's configuration. You may wish to maintain a backup of this folder.
 `~/.config/valet/dnsmasq.d/` | Contains DNSMasq's configuration.
