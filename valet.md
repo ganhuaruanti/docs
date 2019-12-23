@@ -103,9 +103,9 @@ Valet 允許你使用 `valet use php@version` 指令切換 PHP 版本。如果�
 
     valet use php
 
-> {note} Valet only serves one PHP version at a time, even if you have multiple PHP versions installed.
+> {note} 即使你同時安裝多個 PHP 版本，Valet 一次也只會運行一個版本的 PHP
 
-#### Resetting Your Installation
+#### 重設安裝
 
 If you are having trouble getting your Valet installation to run properly, executing the `composer global update` command followed by `valet install` will reset your installation and can solve a variety of problems. In rare cases it may be necessary to "hard reset" Valet by executing `valet uninstall --force` followed by `valet install`.
 
@@ -333,5 +333,3 @@ File / Path | Description
 `/usr/local/etc/php/X.X/conf.d` | Contains `*.ini` files for various PHP configuration settings.
 `/usr/local/etc/php/X.X/php-fpm.d/valet-fpm.conf` | PHP-FPM pool configuration file.
 `~/.composer/vendor/laravel/valet/cli/stubs/secure.valet.conf` | The default Nginx configuration used for building site certificates.
-
->>>>>>> f081becbe373b5b1c1fe1aad736c8b2364f0eac8
