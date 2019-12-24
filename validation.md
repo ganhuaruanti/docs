@@ -53,7 +53,7 @@ Laravel 提供多種方法來驗證應用程式傳入的資料。預設情況下
 <a name="quick-creating-the-controller"></a>
 ### 建立控制器
 
-Next, let's take a look at a simple controller that handles these routes. We'll leave the `store` method empty for now:
+接著，我們來建立一個簡單的控制器，處理這些路徑。現在我們先將 `store` 方法留空：
 
     <?php
 
@@ -644,7 +644,6 @@ Now if the validation rule fails it will produce the following message:
 #### active_url
 
 透過 PHP 的 `dns_get_record` 函式來驗證欄位是否為有效的 A 或 AAAA 紀錄。 The hostname of the provided URL is extracted using the `parse_url` PHP function before being passed to `dns_get_record`.
->>>>>>> e21089592a097e5b1fe6806efa027914074c09c7
 
 <a name="rule-after"></a>
 #### after:_date_
@@ -961,7 +960,7 @@ The field under validation must not be included in the given list of values. The
 <a name="rule-not-regex"></a>
 #### not_regex:_pattern_
 
-The field under validation must not match the given regular expression.
+驗證欄位值不能符合給定的正規表示式。
 
 Internally, this rule uses the PHP `preg_match` function. The pattern specified should obey the same formatting required by `preg_match` and thus also include valid delimiters. For example: `'email' => 'not_regex:/^.+$/i'`.
 
@@ -1152,7 +1151,7 @@ The field under validation must be a valid RFC 4122 (version 1, 3, 4, or 5) univ
 <a name="conditionally-adding-rules"></a>
 ## 依條件增加規則
 
-#### Validating When Present
+#### 參數出現時驗證
 
 在某些情況下，你可能只想在輸入資料中有此欄位時才進行驗證。只要增加 `sometimes` 規則到進規則清單中，就可以快速達成：
 
