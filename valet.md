@@ -9,7 +9,7 @@
     - [「Link」指令](#the-link-command)
     - [使用 TLS 保護](#securing-sites)
 - [共享網站](#sharing-sites)
-- [Site Specific Environment Variables](#site-specific-environment-variables)
+- [專屬網站的環境變數](#site-specific-environment-variables)
 - [自訂 Valet 驅動](#custom-valet-drivers)
     - [本機驅動](#local-drivers)
 - [其它 Valet 指令](#other-valet-commands)
