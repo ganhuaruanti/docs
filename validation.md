@@ -118,6 +118,14 @@ Laravel 提供多種方法來驗證應用程式傳入的資料。預設情況下
         'body' => ['required'],
     ]);
 
+
+If you would like to specify the [error bag](#named-error-bags) in which the error messages should be placed, you may use the `validateWithBag` method:
+
+    $request->validateWithBag('blog', [
+        'title' => ['required', 'unique:posts', 'max:255'],
+        'body' => ['required'],
+    ]);
+
 #### 在首次驗證失敗時停止驗證
 
 有時候你會希望在一個屬性首次驗證失敗時，停止此屬性的其他驗證規則。把 `bail` 規則指派到屬性中來達成目的：

@@ -178,9 +178,24 @@ Valet 一旦安裝好了，你可以開始準備啟動專案。Valet 提供兩�
 
 Valet 甚至包括與世界分享你的本機網站的指令。一旦安裝了 Valet，就不需要安裝額外的軟體。
 
+### Sharing Sites Via Ngrok
+
 若要共享專案，請導航到終端機中的專案目錄，並執行 `valet share` 指令。會將可被公開存取的 URL 放入剪貼簿中，並準備貼到瀏覽器。就這樣。
+>>>>>>> 004e3ea893d7212dc38c79b53738bd7aedbe3439
 
 若要停止共享專案，請點擊 `Control + C` 來終止共享。
+
+> {tip} You may pass additional parameters to the share command, such as `valet share --region=eu`. For more information, consult the [ngrok documentation](https://ngrok.com/docs).
+
+### Sharing Sites On Your Local Network
+
+Valet restricts incoming traffic to the internal `127.0.0.1` interface by default. This way your development machine isn't exposed to security risks from the Internet.
+
+If you wish to allow other devices on your local network to access the Valet sites on your machine via your machine's IP address (eg: `192.168.1.10/app-name.test`), you will need to manually edit the appropriate Nginx configuration file for that site to remove the restriction on the `listen` directive by removing the the `127.0.0.1:` prefix on the directive for ports 80 and 443.
+
+If you have not run `valet secure` on the project, you can open up network access for all non-HTTPS sites by editing the `/usr/local/etc/nginx/valet/valet.conf` file. However, if you're serving the project site over HTTPS (you have run `valet secure` for the site) then you should edit the `~/.config/valet/Nginx/app-name.test` file.
+
+Once you have updated your Nginx configuration, run the `valet restart` command to apply the configuration changes.
 
 <a name="site-specific-environment-variables"></a>
 ## 專屬網站的環境變數
