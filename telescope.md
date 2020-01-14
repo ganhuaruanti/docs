@@ -254,9 +254,7 @@ Often, tags are Eloquent model class names or authenticated user IDs which Teles
 
 命令監視者紀錄已執行 Artisan 命令的參數，選項，exit code 以及輸出。
 
-如果你想要
-
-If you would like to exclude certain commands from being recorded by the watcher, you may specify the command in the `ignore` option in your `config/telescope.php` file:
+如果你想要從命令監視者的紀錄內排除特定的命令，你可以在 `config/telescope.php` 的 `ignore` 選項裡註明該命令：
 
     'watchers' => [
         Watchers\CommandWatcher::class => [
