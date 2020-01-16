@@ -252,6 +252,10 @@ The `fitContent` method will resize the browser window to match the size of the 
 
     $browser->fitContent();
 
+When a test fails, Dusk will automatically resize the browser to fit the content prior to taking a screenshot. You may disable this feature by calling the `disableFitOnFailure` method within your test:
+
+    $browser->disableFitOnFailure();
+
 <a name="browser-macros"></a>
 ### Browser Macros
 
@@ -551,6 +555,14 @@ The `waitForText` method may be used to wait until the given text is displayed o
 
     // Wait a maximum of one second for the text...
     $browser->waitForText('Hello World', 1);
+
+You may use the `waitUntilMissingText` method to wait until the displayed text has been removed from the page:
+
+    // Wait a maximum of five seconds for the text to be removed...
+    $browser->waitUntilMissingText('Hello World');
+
+    // Wait a maximum of one second for the text to be removed...
+    $browser->waitUntilMissingText('Hello World', 1);
 
 #### Waiting For Links
 
@@ -1498,8 +1510,8 @@ If you are using [Github Actions](https://github.com/features/actions) to run yo
           - name: Upgrade Chrome Driver
             run: php artisan dusk:chrome-driver
           - name: Start Chrome Driver
-            run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
+            run: ./vendor/laravel/dusk/bin/chromedriver-linux &
           - name: Run Laravel Server
-            run: php artisan serve > /dev/null 2>&1 &
+            run: php artisan serve &
           - name: Run Dusk Tests
             run: php artisan dusk
