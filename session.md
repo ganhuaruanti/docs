@@ -1,25 +1,25 @@
 # HTTP Session
 
-- [Introduction](#introduction)
-    - [Configuration](#configuration)
-    - [Driver Prerequisites](#driver-prerequisites)
-- [Using The Session](#using-the-session)
-    - [Retrieving Data](#retrieving-data)
-    - [Storing Data](#storing-data)
-    - [Flash Data](#flash-data)
-    - [Deleting Data](#deleting-data)
-    - [Regenerating The Session ID](#regenerating-the-session-id)
-- [Adding Custom Session Drivers](#adding-custom-session-drivers)
-    - [Implementing The Driver](#implementing-the-driver)
-    - [Registering The Driver](#registering-the-driver)
+- [介紹](#introduction)
+    - [設定](#configuration)
+    - [驅動需求](#driver-prerequisites)
+- [使用 Session](#using-the-session)
+    - [取得資料](#retrieving-data)
+    - [儲存資料](#storing-data)
+    - [快閃資料](#flash-data)
+    - [刪除資料](#deleting-data)
+    - [重新產生 Session ID](#regenerating-the-session-id)
+- [新增自訂的 Session 驅動](#adding-custom-session-drivers)
+    - [實作驅動](#implementing-the-driver)
+    - [註冊驅動](#registering-the-driver)
 
 <a name="introduction"></a>
-## Introduction
+## 介紹
 
-Since HTTP driven applications are stateless, sessions provide a way to store information about the user across multiple requests. Laravel ships with a variety of session backends that are accessed through an expressive, unified API. Support for popular backends such as [Memcached](https://memcached.org), [Redis](https://redis.io), and databases is included out of the box.
+由於 HTTP 驅動的應用程式是無狀態的，因此 Session 提供一種跨越多個請求來儲存關於使用者資訊的方法。Laravel 內建使用直觀且一致的 API 來存取各種 Session 後端，並支援目前較熱門的後端驅動，像是 [Memcached](https://memcached.org) 、 [Redis](https://redis.io) 和資料庫。
 
 <a name="configuration"></a>
-### Configuration
+### 驅動需求
 
 The session configuration file is stored at `config/session.php`. Be sure to review the options available to you in this file. By default, Laravel is configured to use the `cookie` session driver, which will work well for many applications.
 
