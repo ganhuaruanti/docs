@@ -19,28 +19,28 @@
 由於 HTTP 驅動的應用程式是無狀態的，因此 Session 提供一種跨越多個請求來儲存關於使用者資訊的方法。Laravel 內建使用直觀且一致的 API 來存取各種 Session 後端，並支援目前較熱門的後端驅動，像是 [Memcached](https://memcached.org) 、 [Redis](https://redis.io) 和資料庫。
 
 <a name="configuration"></a>
-### 驅動需求
+### 設定
 
-The session configuration file is stored at `config/session.php`. Be sure to review the options available to you in this file. By default, Laravel is configured to use the `cookie` session driver, which will work well for many applications.
+Session 設定檔被存放在 `config/session.php`。請確實的查看檔案中的可用選項。預設的 Laravel 被設定使用 `file` Session 驅動，這對於許多應用程式來說算是不錯。By default, Laravel is configured to use the `cookie` session driver, which will work well for many applications.
 
-The session `driver` configuration option defines where session data will be stored for each request. Laravel ships with several great drivers out of the box:
+Session `driver` 設定選項用來定義每個請求所儲存的 Session 資料位置。Laravel 內建幾個很棒的驅動，且能馬上應用：
 
 <div class="content-list" markdown="1">
-- `file` - sessions are stored in `storage/framework/sessions`.
-- `cookie` - sessions are stored in secure, encrypted cookies.
-- `database` - sessions are stored in a relational database.
-- `memcached` / `redis` - sessions are stored in one of these fast, cache based stores.
-- `array` - sessions are stored in a PHP array and will not be persisted.
+- `file` - Session 被儲存到 `storage/framework/sessions` 中。
+- `cookie` - Session 被儲存到安全且被加密的 Cookie 中。
+- `database` - Session 被儲存到關聯資料庫中。
+- `memcached` / `redis` - Session 被儲存到其中一個快速且基於快取的儲存系統中。
+- `array` - Session 被儲存到一個 PHP 陣列中且不會被保留。
 </div>
 
-> {tip} The array driver is used during [testing](/docs/{{version}}/testing) and prevents the data stored in the session from being persisted.
+> {tip} 陣列式驅動被用於[測試](/docs/{{version}}/testing)的時候，並防止 Session 中的資料被永久儲存。
 
 <a name="driver-prerequisites"></a>
-### Driver Prerequisites
+### 驅動需求
 
-#### Database
+#### 資料庫
 
-When using the `database` session driver, you will need to create a table to contain the session items. Below is an example `Schema` declaration for the table:
+在使用 `database` Session 驅動時，你會需要建立一個資料表來放置 Session 項目。以下是使用 `Schema` 建立資料表的範例：
 
     Schema::create('sessions', function ($table) {
         $table->string('id')->unique();
@@ -51,7 +51,7 @@ When using the `database` session driver, you will need to create a table to con
         $table->integer('last_activity');
     });
 
-You may use the `session:table` Artisan command to generate this migration:
+你可以使用 Artisan 的 `session:table` 指令來產生這個遷移檔：
 
     php artisan session:table
 
