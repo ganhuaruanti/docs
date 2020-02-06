@@ -59,17 +59,17 @@ Session `driver` 設定選項用來定義每個請求所儲存的 Session 資料
 
 #### Redis
 
-Before using Redis sessions with Laravel, you will need to either install the PhpRedis PHP extension via PECL or install the `predis/predis` package (~1.0) via Composer. For more information on configuring Redis, consult its [Laravel documentation page](/docs/{{version}}/redis#configuration).
+在使用 Laravel 搭配 Redis Session 之前，你會需要透過 Composer 來安裝`predis/predis` 套件（~1.0）。For more information on configuring Redis, consult its [Laravel documentation page](/docs/{{version}}/redis#configuration).
 
-> {tip} In the `session` configuration file, the `connection` option may be used to specify which Redis connection is used by the session.
+> {tip} 在 `session` 設定檔中，`connection` 選項可被用於指定 Session 要使用哪一個 Redis 連線。
 
 <a name="using-the-session"></a>
-## Using The Session
+## 使用 Session
 
 <a name="retrieving-data"></a>
-### Retrieving Data
+### 取得資料
 
-There are two primary ways of working with session data in Laravel: the global `session` helper and via a `Request` instance. First, let's look at accessing the session via a `Request` instance, which can be type-hinted on a controller method. Remember, controller method dependencies are automatically injected via the Laravel [service container](/docs/{{version}}/container):
+Laravel 有兩種主要的方式來使用 Session 資料：全域的 `session` 輔助函式和透過 `Request` 實例。首先，讓我們觀察透過 `Request` 實例來存取該 Session，這個實例能直接注入在控制器的方法上。但請你記得，控制器方法依賴是透過 Laravel [服務容器](/docs/{{version}}/container)來自動注入的：
 
     <?php
 
@@ -81,7 +81,7 @@ There are two primary ways of working with session data in Laravel: the global `
     class UserController extends Controller
     {
         /**
-         * Show the profile for the given user.
+         * 顯示特定使用者的個人資料。
          *
          * @param  Request  $request
          * @param  int  $id
@@ -95,7 +95,7 @@ There are two primary ways of working with session data in Laravel: the global `
         }
     }
 
-When you retrieve an item from the session, you may also pass a default value as the second argument to the `get` method. This default value will be returned if the specified key does not exist in the session. If you pass a `Closure` as the default value to the `get` method and the requested key does not exist, the `Closure` will be executed and its result returned:
+當你從 Session 中取得一個值得時候，你也可以傳入一個預設的值作為 `get` 方法的第二個參數。如果 Session 中沒有指定的鍵，就會回傳這個預設值。如果你傳入一個`閉包`作為 `get` 方法的預設值，結果請求的值並未存在時，就會執行`閉包`與回傳它的結果：
 
     $value = $request->session()->get('key', 'default');
 
@@ -103,9 +103,9 @@ When you retrieve an item from the session, you may also pass a default value as
         return 'default';
     });
 
-#### The Global Session Helper
+#### 全域 Session 輔助函式
 
-You may also use the global `session` PHP function to retrieve and store data in the session. When the `session` helper is called with a single, string argument, it will return the value of that session key. When the helper is called with an array of key / value pairs, those values will be stored in the session:
+你也可以使用全域的 `session` PHP 函式來取得，並儲存 Session 中的資料。如果只使用一個字串參數來呼叫 `session` 輔助函式的時候，它會回傳 Session 鍵的值。當使用一組陣列的鍵與值來呼叫輔助函式時，這些值會被存到 Session 中：
 
     Route::get('home', function () {
         // Retrieve a piece of data from the session...
