@@ -108,17 +108,17 @@ Laravel 有兩種主要的方式來使用 Session 資料：全域的 `session` �
 你也可以使用全域的 `session` PHP 函式來取得，並儲存 Session 中的資料。如果只使用一個字串參數來呼叫 `session` 輔助函式的時候，它會回傳 Session 鍵的值。當使用一組陣列的鍵與值來呼叫輔助函式時，這些值會被存到 Session 中：
 
     Route::get('home', function () {
-        // Retrieve a piece of data from the session...
+        // 從 Session 中取得一段資料...
         $value = session('key');
 
-        // Specifying a default value...
+        // 指定一個預設值...
         $value = session('key', 'default');
 
-        // Store a piece of data in the session...
+        // 在 Session 中儲存一段資料...
         session(['key' => 'value']);
     });
 
-> {tip} There is little practical difference between using the session via an HTTP request instance versus using the global `session` helper. Both methods are [testable](/docs/{{version}}/testing) via the `assertSessionHas` method which is available in all of your test cases.
+> {tip} 不論是透過 HTTP 請求實例，還是使用全域的 `session` 輔助函式，這兩者之間並無實際上的差異。能透過 `assertSessionHas` 方法在所有測試案例中[測試](/docs/{{version}}/testing)這兩種方法。
 
 #### Retrieving All Session Data
 
