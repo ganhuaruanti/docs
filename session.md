@@ -192,9 +192,9 @@ Laravel 有兩種主要的方式來使用 Session 資料：全域的 `session` �
 <a name="regenerating-the-session-id"></a>
 ### 重新產生 Session ID
 
-Regenerating the session ID is often done in order to prevent malicious users from exploiting a [session fixation](https://en.wikipedia.org/wiki/Session_fixation) attack on your application.
+重新產生 Session ID 通常是為了預防惡意使用者利用 [session fixation](https://en.wikipedia.org/wiki/Session_fixation) 來攻擊你的應用程式。
 
-Laravel automatically regenerates the session ID during authentication if you are using the built-in `LoginController`; however, if you need to manually regenerate the session ID, you may use the `regenerate` method.
+如果使用內建的 `LoginController`，Laravel 會在認證過程中自動重新產生 Session ID。然而，如果你需要手動重新產生 Session ID，你可以使用 `regenerate` 方法。
 
     $request->session()->regenerate();
 
@@ -204,7 +204,7 @@ Laravel automatically regenerates the session ID during authentication if you ar
 <a name="implementing-the-driver"></a>
 #### 實作驅動
 
-Your custom session driver should implement the `SessionHandlerInterface`. This interface contains just a few simple methods we need to implement. A stubbed MongoDB implementation looks something like this:
+你自訂的 Session 驅動會實作 `SessionHandlerInterface` 介面。這個介面就只有一些需要我們實作的簡易的方法。一個基本 MongoDB 的實作大概會像這個：
 
     <?php
 
@@ -220,23 +220,23 @@ Your custom session driver should implement the `SessionHandlerInterface`. This 
         public function gc($lifetime) {}
     }
 
-> {tip} Laravel does not ship with a directory to contain your extensions. You are free to place them anywhere you like. In this example, we have created an `Extensions` directory to house the `MongoSessionHandler`.
+> {tip} Laravel 內建沒有提供用來延伸的目錄。所以你可以隨意放置在你想要的地方。在本範例中，我們建立了一個 `Extensions` 目錄來放置 `MongoSessionHandler`。
 
-Since the purpose of these methods is not readily understandable, let's quickly cover what each of the methods do:
+由於這些方法不是那麼容易理解，所以讓我們快速的快速的了解每一個方法吧：
 
 <div class="content-list" markdown="1">
-- The `open` method would typically be used in file based session store systems. Since Laravel ships with a `file` session driver, you will almost never need to put anything in this method. You can leave it as an empty stub. It is a fact of poor interface design (which we'll discuss later) that PHP requires us to implement this method.
-- The `close` method, like the `open` method, can also usually be disregarded. For most drivers, it is not needed.
-- The `read` method should return the string version of the session data associated with the given `$sessionId`. There is no need to do any serialization or other encoding when retrieving or storing session data in your driver, as Laravel will perform the serialization for you.
-- The `write` method should write the given `$data` string associated with the `$sessionId` to some persistent storage system, such as MongoDB, Dynamo, etc.  Again, you should not perform any serialization - Laravel will have already handled that for you.
-- The `destroy` method should remove the data associated with the `$sessionId` from persistent storage.
-- The `gc` method should destroy all session data that is older than the given `$lifetime`, which is a UNIX timestamp. For self-expiring systems like Memcached and Redis, this method may be left empty.
+- `open` 方法通常用在基於檔案的 session 儲存系統中。因為 Larvel 內建就有 `file` 的驅動，你幾乎不用在方法內寫任何東西。你可以讓這個方法保持空的。只是基於不良的介面設計（我們將在之後討論），PHP 要求必實作此方法。
+- `close` 方法跟 `open` 方法很像，通常可以忽略，對大多數的驅動而言都不需要。
+- `read` 方法必須根據給予的 `$sessionId` 回傳關聯的 session 資料的字串版本。在驅動中取得或儲存資料都不需要做任何的編碼跟序列化的動作，因為 Laravel 會幫你完成序列化。
+- `write` 方法要能將與 `$sessionId` 關聯的 `$data` 字串存入永久儲存系統，如 MongoDB、Dynamo 等等。再說一次，你不應該執行任何序列化 - Laravel 都已經為你處理。
+- `destroy` 方法要能從永久儲存系統刪除與 `$sessionId` 關聯的資料。
+- `gc` 方法要能刪除給予 `$lifetime` 之前的所有資料，`$lifetime` 是一個 UNIX 的時間戳記。在 Memcached 和 Redis 這類會自動過期的系統中，可以讓此方法保持空的。
 </div>
 
 <a name="registering-the-driver"></a>
-#### Registering The Driver
+#### 註冊驅動
 
-Once your driver has been implemented, you are ready to register it with the framework. To add additional drivers to Laravel's session backend, you may use the `extend` method on the `Session` [facade](/docs/{{version}}/facades). You should call the `extend` method from the `boot` method of a [service provider](/docs/{{version}}/providers). You may do this from the existing `AppServiceProvider` or create an entirely new provider:
+一旦你的驅動程式已經實作，你就可以準備在框架中註冊它，要新增額外的驅動到 Laravel Session 後端，你可以在 `Session` [facade](/docs/{{version}}/facades) 上使用 `extend`。你應該從一個[服務提供者](/docs/{{version}}/providers) 的 `boot` 方法中呼叫 `extend` 方法。你可以從現有的 `AppServiceProvider` 或建立一個全新的提供者來做到：
 
     <?php
 
@@ -272,4 +272,4 @@ Once your driver has been implemented, you are ready to register it with the fra
         }
     }
 
-Once the session driver has been registered, you may use the `mongo` driver in your `config/session.php` configuration file.
+Session 驅動一旦被註冊，你就可以在 `config/session.php` 設定檔中使用 `mongo` 驅動。
