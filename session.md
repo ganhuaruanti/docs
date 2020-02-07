@@ -120,77 +120,77 @@ Laravel 有兩種主要的方式來使用 Session 資料：全域的 `session` �
 
 > {tip} 不論是透過 HTTP 請求實例，還是使用全域的 `session` 輔助函式，這兩者之間並無實際上的差異。能透過 `assertSessionHas` 方法在所有測試案例中[測試](/docs/{{version}}/testing)這兩種方法。
 
-#### Retrieving All Session Data
+#### 取得所有 Session 資料
 
-If you would like to retrieve all the data in the session, you may use the `all` method:
+如果你想要在 Session 中取得所有資料，你可以使用 `all` 方法：
 
     $data = $request->session()->all();
 
-#### Determining If An Item Exists In The Session
+#### 確定項目是否存在於 Session
 
-To determine if an item is present in the session, you may use the `has` method. The `has` method returns `true` if the item is present and is not `null`:
+要確定一個值是否存在於 Session，你可以使用 `has` 方法。如果該值存在，`has` 方法就會回傳 `true`，如果沒有則回傳 `null`：
 
     if ($request->session()->has('users')) {
         //
     }
 
-To determine if an item is present in the session, even if its value is `null`, you may use the `exists` method. The `exists` method returns `true` if the item is present:
+要確認一個值是否存在於 Session，縱使這個值是 `null`，你可以使用 `exists` 方法。`exists` 方法會在該值存在時回傳 `true`：
 
     if ($request->session()->exists('users')) {
         //
     }
 
 <a name="storing-data"></a>
-### Storing Data
+### 儲存資料
 
-To store data in the session, you will typically use the `put` method or the `session` helper:
+要在 Session 儲存資料，你通常會使用 `put` 方法或 `session` 輔助函式：
 
-    // Via a request instance...
+    // 透過一個請求實例...
     $request->session()->put('key', 'value');
 
-    // Via the global helper...
+    // 透過全域輔助函式...
     session(['key' => 'value']);
 
-#### Pushing To Array Session Values
+#### 將 Session 值推入陣列中
 
-The `push` method may be used to push a new value onto a session value that is an array. For example, if the `user.teams` key contains an array of team names, you may push a new value onto the array like so:
+`push` 方法可被用於將一個新的值推入一組放置 Session 值的陣列。例如，如果 `user.teams` 鍵中有一組團隊名稱的陣列，你可以將一個新值推入陣列中，就像：
 
     $request->session()->push('user.teams', 'developers');
 
-#### Retrieving & Deleting An Item
+#### 取得與刪除一個項目
 
-The `pull` method will retrieve and delete an item from the session in a single statement:
+`pull` 方法只用一行句子就能從 Session 中取得和刪除一個項目：
 
     $value = $request->session()->pull('key', 'default');
 
 <a name="flash-data"></a>
-### Flash Data
+### 快閃資料
 
-Sometimes you may wish to store items in the session only for the next request. You may do so using the `flash` method. Data stored in the session using this method will be available immediately and during the subsequent HTTP request. After the subsequent HTTP request, the flashed data will be deleted. Flash data is primarily useful for short-lived status messages:
+有時你可能希望只有在下一個請求中才將項目儲存到 Session 裡。你可以使用 `flash` 方法來做到。使用這個方法來將資料儲存到 Session，資料只會保留到下一個 HTTP 請求之前，然後就會清除這些資料。快閃資料主要用於短期的狀態訊息：
 
     $request->session()->flash('status', 'Task was successful!');
 
-If you need to keep your flash data around for several requests, you may use the `reflash` method, which will keep all of the flash data for an additional request. If you only need to keep specific flash data, you may use the `keep` method:
+如果你需要保留快閃資料給更多的請求，你可以使用 `reflash` 方法，這方法會將所有快閃資料保留到額外的請求。如果你只需要指定快閃資料，你可以使用 `keep` 方法：
 
     $request->session()->reflash();
 
     $request->session()->keep(['username', 'email']);
 
 <a name="deleting-data"></a>
-### Deleting Data
+### 刪除資料
 
-The `forget` method will remove a piece of data from the session. If you would like to remove all data from the session, you may use the `flush` method:
+`forget` 方法會從 Session 中移除資料片段。如果你想要從 Session 中移除所有資料，你可以使用 `flush` 方法：
 
-    // Forget a single key...
+    // 移除單一鍵值資料
     $request->session()->forget('key');
 
-    // Forget multiple keys...
+    // 移除多個鍵值資料
     $request->session()->forget(['key1', 'key2']);
 
     $request->session()->flush();
 
 <a name="regenerating-the-session-id"></a>
-### Regenerating The Session ID
+### 重新產生 Session ID
 
 Regenerating the session ID is often done in order to prevent malicious users from exploiting a [session fixation](https://en.wikipedia.org/wiki/Session_fixation) attack on your application.
 
@@ -199,10 +199,10 @@ Laravel automatically regenerates the session ID during authentication if you ar
     $request->session()->regenerate();
 
 <a name="adding-custom-session-drivers"></a>
-## Adding Custom Session Drivers
+## 新增自訂的 Session 驅動
 
 <a name="implementing-the-driver"></a>
-#### Implementing The Driver
+#### 實作驅動
 
 Your custom session driver should implement the `SessionHandlerInterface`. This interface contains just a few simple methods we need to implement. A stubbed MongoDB implementation looks something like this:
 
